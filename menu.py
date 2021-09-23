@@ -63,9 +63,12 @@ def edit_existing_record():
         conn.execute('UPDATE juggling SET num_of_catches = ? WHERE name = ? ', (catches_num, update_juggler))
     conn.close()
 
+""" Fuinction that will delete a record from table when called """
 def delete_record():
-    print('todo delete existing record. What if user wants to delete record that does not exist?') 
-
+    update_juggler = input('Enter Juggler\'s name to delete record: ')
+    with sqlite3.connect(db) as conn:
+        conn.execute('DELETE FROM juggling WHERE name = ?', (update_juggler,))
+    conn.close()
 
 if __name__ == '__main__':
     main()
