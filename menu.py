@@ -44,8 +44,11 @@ def display_all_records():
         print(row)
     conn.close()
 
+""" Function that will add new a record to the table when called """
 def add_new_record():
-    print('todo add new record. What if user wants to add a record that already exists?')
+    name = input('Enter juggler name: ')
+    country = input('Enter juggler\'s country: ')
+    catches_num = int(input('Enter juggler\'s amount of catches: '))
 
 
 def edit_existing_record():
