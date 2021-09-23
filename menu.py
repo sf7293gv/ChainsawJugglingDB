@@ -54,9 +54,14 @@ def add_new_record():
         conn.execute('INSERT INTO juggling VALUES (?, ?, ?)', (name, country, catches_num))
     conn.close()
 
+""" Function that will update an existing record when called """
 def edit_existing_record():
-    print('todo edit existing record. What if user wants to edit record that does not exist?') 
-
+    update_juggler = input('Enter Juggler\'s name to update: ')
+    catches_num = int(input('Enter new amount of catches: '))
+    
+    with sqlite3.connect(db) as conn:
+        conn.execute('UPDATE juggling SET num_of_catches = ? WHERE name = ? ', (catches_num, update_juggler))
+    conn.close()
 
 def delete_record():
     print('todo delete existing record. What if user wants to delete record that does not exist?') 
