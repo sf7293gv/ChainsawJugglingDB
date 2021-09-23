@@ -14,6 +14,7 @@ def main():
 
     while True:
         print(menu_text)
+        create_table() # Call this function to create table
         choice = input('Enter your choice: ')
         if choice == '1':
             display_all_records()
@@ -28,6 +29,12 @@ def main():
         else:
             print('Not a valid selection, please try again')
 
+
+""" Create the juggling table if it does not already exist """
+def create_table(): 
+    with sqlite3.connect(db) as conn:
+        conn.execute('CREATE TABLE IF NOT EXISTS juggling (name text, country text, num_of_catches int)')
+    conn.close()
 
 def display_all_records():
     print('todo display all records')
