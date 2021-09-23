@@ -36,9 +36,13 @@ def create_table():
         conn.execute('CREATE TABLE IF NOT EXISTS juggling (name text, country text, num_of_catches int)')
     conn.close()
 
+""" Function that will display all the records in table when called """
 def display_all_records():
-    print('todo display all records')
-
+    conn = sqlite3.connect(db)
+    results = conn.execute('SELECT * FROM juggling')
+    for row in results:
+        print(row)
+    conn.close()
 
 def add_new_record():
     print('todo add new record. What if user wants to add a record that already exists?')
