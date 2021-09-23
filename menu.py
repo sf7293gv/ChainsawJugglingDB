@@ -49,7 +49,9 @@ def add_new_record():
     name = input('Enter juggler name: ')
     country = input('Enter juggler\'s country: ')
     catches_num = int(input('Enter juggler\'s amount of catches: '))
-
+    with sqlite3.connect(db) as conn:
+        conn.execute('INSERT INTO juggling VALUES (?, ?, ?)', (name, country, catches_num))
+    conn.close()
 
 def edit_existing_record():
     print('todo edit existing record. What if user wants to edit record that does not exist?') 
