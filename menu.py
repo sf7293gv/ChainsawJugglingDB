@@ -1,7 +1,8 @@
 """
 A menu - you need to add the database and fill in the functions. 
 """
-
+import sqlite3
+db = 'juggling_db.sqlite'
 
 def main():
     menu_text = """
